@@ -1,0 +1,37 @@
+.header .container {
+  max-width: 1920px;
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  padding: 16px 18px 16px 19px;
+}
+
+.nav-item a.active {
+  color: black;
+}
+
+.input-search {
+  width: 194px;
+  padding: 8px 15px;
+  margin-right: 10px;
+}
+
+.btn-search {
+  width: 100px;
+  border: 1px solid #14448A;
+  background-color: white;
+  color: #14448A;
+}
+
+.btn-search:hover {
+  background-color: #0a2246;
+  color: white;
+}
+
+/* 320 - 351 */
+@media screen and (max-width: 351px) {
+  .btn-search {
+    width: 100%;
+  }
+}

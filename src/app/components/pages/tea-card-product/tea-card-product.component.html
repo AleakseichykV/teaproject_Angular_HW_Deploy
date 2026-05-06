@@ -1,0 +1,23 @@
+<section class="tea-card-product">
+  <div class="container">
+      <div class="tea-card d-flex justify-content-center">
+        <div class="tea-card-image me-3">
+          <img src="{{teaCardProduct.image}}" alt="Pic 1">
+        </div>
+        <div class="tea-card-body d-flex flex-column">
+          <div class="tea-card-title mb-4">{{teaCardProduct.title}}</div>
+          <div class="tea-card-price mb-4">{{teaCardProduct.price}} р.</div>
+          <div class="tea-card-description mb-4">{{teaCardProduct.description}}</div>
+          <div class="tea-card-buy">
+            <button class="btn rounded-1 btn-primary" (click)="addToCart(teaCardProduct.title)">Купить</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+

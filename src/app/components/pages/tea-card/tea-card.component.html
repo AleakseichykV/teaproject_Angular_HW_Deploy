@@ -1,0 +1,12 @@
+<div class="tea-card rounded-1">
+  <div class="tea-card-image">
+    <img src="{{teaCard.image}}" alt="Pic 1">
+  </div>
+  <div class="tea-card-body">
+    <div class="title tea-card-title">{{teaCard.title}}</div>
+    <div class="tea-card-description">{{teaCard.description}}</div>
+    <div class="tea-card-about">
+      <button class="btn about rounded-1 btn-primary" [routerLink]="['/products', teaCard.id]">Подробнее</button>
+    </div>
+  </div>
+</div>

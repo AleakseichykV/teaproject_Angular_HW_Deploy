@@ -1,0 +1,8 @@
+<section class="tea-collections">
+  <div class="container">
+    <div class="title tea-collections-title">Наши чайные коллекции</div>
+    <div class="tea-cards d-flex">
+      <tea-card-component *ngFor="let teaCard of teaCards" [teaCard]="teaCard"></tea-card-component>
+    </div>
+  </div>
+</section>

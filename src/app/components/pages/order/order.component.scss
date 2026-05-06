@@ -1,0 +1,12 @@
+.order {
+  max-width: 636px;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+
+/* 499 - 671 */
+@media screen and (max-width: 671px) {
+  .order {
+    padding: 0 15px;
+  }
+}

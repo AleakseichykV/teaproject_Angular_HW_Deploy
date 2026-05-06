@@ -1,0 +1,113 @@
+<section class="order pb-5">
+  <div class="container">
+    <div class="title order-title" #orderTitle>Сделать заказ</div>
+    <form  [formGroup]="orderForm" *ngIf="isOrderFormVisible" (ngSubmit)="createOrderTea()">
+      <div class="row justify-content-between mb-3">
+        <div class="form-group col-6">
+          <label for="formGroupProductInput" class="mb-2">Товар</label>
+          <input name="productTitle" class="form-control rounded-1" id="formGroupProductInput" placeholder=""
+          formControlName="productTitle" required [class]="{'border-danger': productTitle?.invalid && (productTitle?.dirty || productTitle?.touched)}">
+          <div *ngIf="productTitle?.invalid && (productTitle?.dirty || productTitle?.touched)">
+            <div class="text-danger" *ngIf="productTitle?.errors?.['required']">
+              Заполните поле Товар
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="formGroupNameInput" class="mb-2">Имя</label>
+          <input name="firstName" type="text" class="form-control rounded-1" id="formGroupNameInput" placeholder=""
+          formControlName="firstname" required nameValidator="^[a-zA-Zа-яёА-Я\s]*$" [class]="{'border-danger': firstname?.invalid && (firstname?.dirty || firstname?.touched)}">
+          <div *ngIf="firstname?.invalid && (firstname?.dirty || firstname?.touched)">
+            <div class="text-danger" *ngIf="firstname?.errors?.['required']">
+              Заполните поле Имя
+            </div>
+            <div class="text-danger" *ngIf="firstname?.errors?.['pattern']">
+              Поле должно содержать только буквы
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-between mb-3">
+        <div class="form-group col-6">
+          <label for="formGroupSurnameInput" class="mb-2">Фамилия</label>
+          <input name="lastName" type="text" class="form-control rounded-1" id="formGroupSurnameInput" placeholder=""
+          formControlName="lastname" required nameValidator="^[a-zA-Zа-яёА-Я\s]*$" [class]="{'border-danger': lastname?.invalid && (lastname?.dirty || lastname?.touched)}">
+          <div *ngIf="lastname?.invalid && (lastname?.dirty || lastname?.touched)">
+            <div class="text-danger" *ngIf="lastname?.errors?.['required']">
+              Заполните поле Фамилия
+            </div>
+            <div class="text-danger" *ngIf="lastname?.errors?.['pattern']">
+              Поле должно содержать только буквы
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="formGroupPhoneInput" class="mb-2">Телефон</label>
+          <input name="phone" type="text" class="form-control rounded-1" id="formGroupPhoneInput" placeholder=""
+          formControlName="phone" required phoneValidator="^$|^\+*\d{10,11}$" [class]="{'border-danger': phone?.invalid && (phone?.dirty || phone?.touched)}">
+          <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+            <div class="text-danger" *ngIf="phone?.errors?.['required']">
+              Заполните поле Телефон
+            </div>
+            <div class="text-danger" *ngIf="phone?.errors?.['pattern']">
+              Заполните поле в формате +XXXXXXXXXX или +XXXXXXXXXXX
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-between mb-3">
+        <div class="form-group col-6">
+          <label for="formGroupCountryInput" class="mb-2">Страна</label>
+          <input name="country" type="text" class="form-control rounded-1" id="formGroupCountryInput" placeholder=""
+          formControlName="country" required nameValidator="^[a-zA-Zа-яёА-Я\s]*$" [class]="{'border-danger': country?.invalid && (country?.dirty || country?.touched)}">
+          <div *ngIf="country?.invalid && (country?.dirty || country?.touched)">
+            <div class="text-danger" *ngIf="country?.errors?.['required']">
+              Заполните поле Страна
+            </div>
+            <div class="text-danger" *ngIf="country?.errors?.['pattern']">
+              Поле должно содержать только буквы
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-6">
+          <label for="formGroupIndexInput" class="mb-2">Индекс</label>
+          <input name="index" type="text" class="form-control rounded-1" id="formGroupIndexInput" placeholder=""
+          formControlName="index" required indexValidator="^$|^\d{5,10}$" [class]="{'border-danger': index?.invalid && (index?.dirty || index?.touched)}">
+          <div *ngIf="index?.invalid && (index?.dirty || index?.touched)">
+            <div class="text-danger" *ngIf="index?.errors?.['required']">
+              Заполните поле Индекс
+            </div>
+            <div class="text-danger" *ngIf="index?.errors?.['pattern']">
+              Индекс должен содержать только цифры
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="form-group">
+          <label for="formGroupAddressInput" class="mb-2">Адрес</label>
+          <input name="address" type="text" class="form-control rounded-1" id="formGroupAddressInput" placeholder=""
+          formControlName="address" required pattern="^[a-zA-Zа-яА-Я0-9\s\-\/]+$" [class]="{'border-danger': address?.invalid && (address?.dirty || address?.touched)}">
+          <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+            <div class="text-danger" *ngIf="address?.errors?.['required']">
+              Заполните поле Адрес
+            </div>
+            <div class="text-danger" *ngIf="address?.errors?.['pattern']">
+              Поле может содержать буквы, цифры, пробелы,- и /
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="form-group">
+          <label for="formGroupCommentInput" class="mb-2">Комментарий к заказу</label>
+          <input name="comments" type="text" class="form-control rounded-1" id="formGroupCommentInput" placeholder=""
+          formControlName="comments">
+        </div>
+      </div>
+      <button class="btn send-button rounded-1 btn-primary" *ngIf="isOrderFormVisible" [disabled]="orderForm.invalid || orderForm.disabled">Отправить</button>
+    </form>
+    <div class="error text-danger" *ngIf="isErrorFormVisible">Произошла ошибка. Попробуйте еще раз.</div>
+  </div>
+</section>
