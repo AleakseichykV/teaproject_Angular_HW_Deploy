@@ -20,16 +20,16 @@ export class MainComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  // ngAfterViewInit() {
-  //   this.pageLoad$.subscribe(() => {
-  //     setTimeout(() => {
-  //       this.modalService.open(this.popup, {
-  //         backdrop: false,
-  //         windowClass: 'my-custom-modal-window',
-  //       });
-  //     }, 10000)
-  //   })
-  // }
+  ngAfterViewInit() {
+    this.pageLoad$.subscribe(() => {
+      setTimeout(() => {
+        this.modalService.open(this.popup, {
+          backdrop: false,
+          windowClass: 'my-custom-modal-window',
+        });
+      }, 10000)
+    })
+  }
   closePopup() {
     this.modalService.dismissAll();
   }
