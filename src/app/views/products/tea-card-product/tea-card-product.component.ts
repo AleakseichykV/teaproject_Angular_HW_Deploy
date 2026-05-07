@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductService} from "../../services/product.service";
-import {TeaCardType} from "../../types/tea.card.type";
-import {CartService} from "../../services/cart.service";
+import {TeaCardType} from "../../../../types/tea.card.type";
+import {ProductService} from "../../../shared/services/product.service";
+import {CartService} from "../../../shared/services/cart.service";
 
 @Component({
   selector: 'tea-card-product-component',

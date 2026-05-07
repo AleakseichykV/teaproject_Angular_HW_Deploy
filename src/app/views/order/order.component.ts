@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-import {ProductService} from "../../services/product.service";
 import {Subscribable, Subscription} from "rxjs";
+import {ProductService} from "../../shared/services/product.service";
 
 @Component({
   selector: 'order-component',

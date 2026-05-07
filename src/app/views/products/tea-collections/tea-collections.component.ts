@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TeaCardType} from "../../types/tea.card.type";
 import {HttpClient} from "@angular/common/http";
-import {ProductService} from "../../services/product.service";
+import {TeaCardType} from "../../../../types/tea.card.type";
+import {ProductService} from "../../../shared/services/product.service";
 
 @Component({
   selector: 'tea-collections-component',

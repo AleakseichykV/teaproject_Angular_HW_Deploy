@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TeaCardType} from "../../types/tea.card.type";
+import {TeaCardType} from "../../../../types/tea.card.type";
 
 @Component({
   selector: 'tea-card-component',

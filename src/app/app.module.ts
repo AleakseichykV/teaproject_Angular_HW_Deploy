@@ -1,45 +1,35 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { MainComponent } from './components/pages/main/main.component';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { TeaCollectionsComponent } from './components/pages/tea-collections/tea-collections.component';
-import { TeaCardComponent } from './components/pages/tea-card/tea-card.component';
-import { TeaCardProductComponent } from './components/pages/tea-card-product/tea-card-product.component';
-import { OrderComponent } from './components/pages/order/order.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {NameValidatorDirective} from "./directives/name-validator.directive";
-import {PhoneValidatorDirective} from "./directives/phone-validator.directive";
-import {IndexValidatorDirective} from "./directives/index-validator.directive";
-import {AddressValidatorDirective} from "./directives/address-validator.directive";
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HomeModule} from "./views/home/home.module";
+import {OrderModule} from "./views/order/order.module";
+import {ProductsModule} from "./views/products/products.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    HeaderComponent,
-    FooterComponent,
-    TeaCollectionsComponent,
-    TeaCardComponent,
-    TeaCardProductComponent,
-    OrderComponent,
-    NameValidatorDirective,
-    PhoneValidatorDirective,
-    IndexValidatorDirective,
-    AddressValidatorDirective
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    // NgbModule,
+    HomeModule,
+    OrderModule,
+    ProductsModule,
+    SharedModule,
+    AppRoutingModule,
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
